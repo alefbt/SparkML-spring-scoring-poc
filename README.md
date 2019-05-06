@@ -67,7 +67,16 @@ model.save("/some-where-ml/project1/pipeline")
 in `application.properties` change the `pipelines.folder` to pipeline store folder
 
 ## 4. Runing & Executing
-`curl -X POST -H "Content-Type: application/json" -d '[{"text":"Alice"}]' http://localhost:8080/predict/spark-sample-pipeline`
+
+```bash
+curl -X POST \
+	-H "Content-Type: application/json" \
+	-d '[{"text":"Alice"}]' \
+	http://localhost:8080/predict/spark-sample-pipeline
+```
+
+![Runnig POC](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/poc-serv.png "Running POC")
+
 
 ## 5. (OPTIONAL) What next?
 * add Warm-up for modules  
