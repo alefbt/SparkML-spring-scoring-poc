@@ -52,7 +52,7 @@ model.save("/some-where-ml/project1/pipeline")
 
 ```
 
-## 2. Adding `/some-where-ml/project1/mlserving.json`
+## 2. Adding `/some-where-ml/project1/mlserving.json` 
 ```json
 {
     "name":"Test pipeline",
@@ -66,11 +66,24 @@ model.save("/some-where-ml/project1/pipeline")
     "output": ["name", "features"]
 }
 ```
-
-## 3. Define /some-where-ml path
-in `application.properties` change the `pipelines.folder` to pipeline store folder
+## 3. Zip
+No zip the folder `/some-where-ml/project1` and put it in your `pipelines.folder`
+```bash
+zip -r spark-sample-pipeline.zip /some-where-ml/project1 
+```
 
 ## 4. Runing & Executing
+in `application.properties` change the `pipelines.folder` to pipeline store folder -OR- run as paramete (like below)
+
+```bash
+# Build mvn
+mvn install package
+
+# Run
+java -Dpipelines.folder=/some-where-ml -jar target/mlserver.jar
+```
+
+## 5. Call REST
 
 ```bash
 curl -X POST \
@@ -82,7 +95,7 @@ curl -X POST \
 ![Runnig POC](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/poc-serv1.png "Running POC")
 
 
-## 5. (OPTIONAL) What next?
+## 6. (OPTIONAL) What next?
 * add Warm-up for modules  
 * dockerize and serve it as service
 
@@ -102,6 +115,10 @@ docker run  --rm -it -p 9900:8080  alefbt/spring-mlspark-serving
 * This is code is **not optimized** to sub-second serving, it's possibol <,i did it on other project ;-) in order to do it, you need do some cacheing>
 * Code contribution is welcome !
 * Remember: this porject is POC.
+
+# Known issues
+* FIXED. Snappy (`xerial.snappy` package) doing some problems when running on vanilla Docker `openjdk:8-jdk-alpine` - see the `Dockerfile` explaines the walkaround
+
 
 # Licence
 MIT - Free.
