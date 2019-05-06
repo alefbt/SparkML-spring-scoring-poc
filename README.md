@@ -76,7 +76,7 @@ curl -X POST \
 	 http://localhost:9900/predict/spark-sample-pipeline
 ```
 
-![Runnig POC](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/poc-serv.png "Running POC")
+![Runnig POC](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/poc-serv1.png "Running POC")
 
 
 ## 5. (OPTIONAL) What next?
