@@ -13,4 +13,4 @@ COPY target/mlserver.jar mlserver.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Dpipelines.folder=/pipelines-store","-Djava.security.egd=file:/dev/./urandom","-jar","/mlserver.jar"]
+ENTRYPOINT ["java", "-Dspark.ui.enabled=false", "-Dpipelines.folder=/pipelines-store","-Djava.security.egd=file:/dev/./urandom","-jar","/mlserver.jar"]
