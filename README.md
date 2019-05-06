@@ -1,3 +1,6 @@
+
+![Head](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/head.png "Header")
+
 # SparkML-spring-scoring-poc
 POC of socring rest service od Spark ML Pipelines.
 The 
