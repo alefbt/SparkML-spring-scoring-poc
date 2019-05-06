@@ -48,7 +48,13 @@ public class SparkService {
 	@PostConstruct
 	public void init() throws IOException {
 		setSparkSession(
-				SparkSession.builder().master("local[*]").appName("MLServing").getOrCreate());
+				SparkSession.builder().master("local[*]")
+				.config("spark.ui.showConsoleProgress", false)
+				.config("spark.ui.enabled", false)
+				.config("spark.ui.killEnabled", false)
+				.config("spark.authenticate", true)
+				.config("spark.authenticate.secret","sdkmamdklmwqkwmdlkmda")
+				.appName("MLServing").getOrCreate());
 	}
 
 	@SuppressWarnings("deprecation")
