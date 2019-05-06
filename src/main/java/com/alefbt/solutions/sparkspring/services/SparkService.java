@@ -1,7 +1,6 @@
 package com.alefbt.solutions.sparkspring.services;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,18 +48,10 @@ public class SparkService {
 	@PostConstruct
 	public void init() throws IOException {
 		setSparkSession(
-				SparkSession.builder().master("local[*]").appName("Java Spark SQL basic example").getOrCreate());
-
-	
-		PipelineModel pl = PipelineModel.load(Paths.get(resourceFile.getFile().getParent(),"simple_pipline1").toFile().getAbsolutePath());
-		models.put("test", pl);
-
-		simpleDataset = getSparkSession().read().json(Paths.get(resourceFile.getFile().getParent(),"test1.json").toFile().getAbsolutePath());
-
-		executePredict("test", simpleDataset);
-
+				SparkSession.builder().master("local[*]").appName("MLServing").getOrCreate());
 	}
 
+	@SuppressWarnings("deprecation")
 	public Dataset<Row> jsonToDf(String jsonString) {
 		List<String> jsonList = new ArrayList<>();
 

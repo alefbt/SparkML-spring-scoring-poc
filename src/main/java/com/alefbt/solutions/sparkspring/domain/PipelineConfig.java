@@ -8,17 +8,17 @@ import java.util.HashMap;
  * you can see it on src/main/resource/mlserving.json
  * 
  * <pre>
- * {
-    "name":"Test pipeline",
-    "pipeline":"simple_pipline1",
-    "schema":[
-        {"name":"name","type":"STRING", "isNullable":false}
-    ],
-    "sample":{
-        "name":"Bob"
-    },
-    "output": ["name", "features"]
-}
+   {
+	    "name":"Test pipeline",
+	    "pipeline":"simple_pipline1",
+	    "schema":[
+	        {"name":"name","type":"STRING", "isNullable":false}
+	    ],
+	    "sample":{
+	        "name":"Bob"
+	    },
+	    "output": ["name", "features"]
+	}
  * </pre>
  * 
  * @author yehuda
