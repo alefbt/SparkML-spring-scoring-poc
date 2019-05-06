@@ -44,6 +44,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 # Fit the pipeline to training documents.
 model = pipeline.fit(training)
 
+# This is the save pipeline method
 model.save("/some-where-ml/project1/pipeline")
 
 ```
@@ -70,9 +71,9 @@ in `application.properties` change the `pipelines.folder` to pipeline store fold
 
 ```bash
 curl -X POST \
-	-H "Content-Type: application/json" \
-	-d '[{"text":"Alice"}]' \
-	http://localhost:8080/predict/spark-sample-pipeline
+	 -H "Content-Type: application/json" \
+	 -d '[{"text":"Yehuda"}]' \
+	 http://localhost:9900/predict/spark-sample-pipeline
 ```
 
 ![Runnig POC](https://github.com/alefbt/SparkML-spring-scoring-poc/blob/master/images/poc-serv.png "Running POC")
